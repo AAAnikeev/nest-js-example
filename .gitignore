@@ -11,6 +11,10 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+# Secret nfo
+*.crt
+*.key
+
 # OS
 .DS_Store
 
