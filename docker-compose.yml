@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+
+  server:
+    image: nestjs-jwt-profile
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    command: npm start
+    environment:
+      NODE_ENV: development
+      HOST: "${HOST}"
+      PORT: 3000
+      PAPERTRAIL_HOST: "${PAPERTRAIL_HOST}"
+      PAPERTRAIL_PORT: "${PAPERTRAIL_PORT}"
+

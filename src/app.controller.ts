@@ -1,12 +1,10 @@
 import { Controller, Get, Redirect, Request, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
-import { AuthService } from './auth/auth.service';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
 
 @Controller()
 export class AppController {
-  constructor(private readonly authService: AuthService,
-    private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService) {}
 
   @Get()
   getHelp(): string {
