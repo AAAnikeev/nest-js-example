@@ -6,5 +6,4 @@ export class AuthService {
   constructor(
     private readonly jwtService: JwtService,
   ) {}
-
 }
