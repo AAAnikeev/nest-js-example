@@ -2,6 +2,11 @@
 /dist
 /node_modules
 
+# auto generate files
+package-lock.json
+tsconfig.build.tsbuildinfo
+tsconfig.tsbuildinfo
+
 # Logs
 logs
 *.log
@@ -11,7 +16,7 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
-# Secret nfo
+# Secret info
 *.crt
 *.key
 
