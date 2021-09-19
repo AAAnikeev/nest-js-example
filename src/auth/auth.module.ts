@@ -8,7 +8,7 @@ import { JwtStrategy } from './strategies/jwt.strategy';
     imports: [
       PassportModule,
       JwtModule.register({
-        signOptions: { expiresIn: '60s' },
+        signOptions: { expiresIn: '24h' },
       }),
     ],
     providers: [AuthService, JwtStrategy],
