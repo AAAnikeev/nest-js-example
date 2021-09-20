@@ -15,14 +15,14 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         jwksRequestsPerMinute: 5,
         jwksUri: 'https://www.googleapis.com/oauth2/v3/certs',
       }),
-     algorithms: ['RS256'],
-     issuer: 'https://accounts.google.com'
+      algorithms: ['RS256'],
+      issuer: 'https://accounts.google.com',
     });
   }
 
-  async validate(payload: any): Promise<{name: string, email: string}> {
-    if (!payload['email'] || !payload['name']){
-        throw new UnauthorizedException();
+  async validate(payload: any): Promise<{ name: string; email: string }> {
+    if (!payload['email'] || !payload['name']) {
+      throw new UnauthorizedException();
     }
     return { name: payload['name'], email: payload['email'] };
   }

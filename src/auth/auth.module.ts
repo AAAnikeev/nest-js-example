@@ -5,12 +5,12 @@ import { AuthService } from './auth.service';
 import { JwtStrategy } from './strategies/jwt.strategy';
 
 @Module({
-    imports: [
-      PassportModule,
-      JwtModule.register({
-        signOptions: { expiresIn: '24h' },
-      }),
-    ],
-    providers: [AuthService, JwtStrategy],
-  })
+  imports: [
+    PassportModule,
+    JwtModule.register({
+      signOptions: { expiresIn: '24h' },
+    }),
+  ],
+  providers: [AuthService, JwtStrategy],
+})
 export class AuthModule {}
