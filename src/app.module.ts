@@ -25,6 +25,7 @@ import { UserService } from './user/user.service';
       database: env.POSTGRES_DB,
       entities: [User],
       synchronize: true,
+      dropSchema: false,
       autoLoadEntities: true,
     }),
   ],
