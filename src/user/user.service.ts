@@ -11,7 +11,7 @@ export class UserService {
     private usersRepository: Repository<User>,
   ) {}
 
-  findOneByName(name: string): Promise<User> {
+  findOneByName(name: string): Promise<User | undefined> {
     return this.usersRepository.findOne({
       where: {
         name: name,
@@ -19,8 +19,8 @@ export class UserService {
     });
   }
 
-  async createUser(dto: CreateUserDto) {
-    const user = await this.usersRepository.save(dto); //don't understand why create is not working
+  async createUser(dto: CreateUserDto): Promise<User | undefined> {
+    const user = await this.usersRepository.save(dto); // don't understand why create is not working
     return user;
   }
 
