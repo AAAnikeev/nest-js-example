@@ -25,16 +25,18 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   async validate(payload: any): Promise<User> {
     const name = payload.name;
     if (!payload.email || !payload.name) {
-      throw new UnauthorizedException("Cann't get name and email from this JWT");
+      throw new UnauthorizedException(
+        "Cann't get name and email from this JWT",
+      );
     }
     const user = await this.userService.findOneByName(name);
-    if (!user){
+    if (!user) {
       throw new UnauthorizedException("Cann't find anyone with this name");
     }
-    console.log(user.email);
-    console.log(payload.email);
-    if (user.email != payload.email){
-      throw new UnauthorizedException("Email for " + user.name + " is different");
+    if (user.email !== payload.email) {
+      throw new UnauthorizedException(
+        'Email for ' + user.name + ' is different',
+      );
     }
     return user;
   }
