@@ -15,4 +15,9 @@ export class UserController {
   getAll() {
     return this.usersService.getAllUsers();
   }
+
+  @Get('byname')
+  getByName(@Body() userName: { name: string }) {
+    return this.usersService.findOneByName(userName.name);
+  }
 }
