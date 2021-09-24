@@ -1,3 +1,4 @@
+import { env } from 'process';
 import {
   Column,
   Entity,
@@ -5,7 +6,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity()
+const schemaName = env.NODE_ENV === 'test' ? 'test' : 'public';
+@Entity({ schema: schemaName })
 export class User {
   @PrimaryGeneratedColumn()
   id: number;

@@ -2,14 +2,10 @@ import { INestApplication } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user.module';
-import { User } from './user.entity';
-import { Repository } from 'typeorm';
 import * as supertest from 'supertest';
 
 describe('UserService (e2e)', () => {
   let app: INestApplication;
-  let repository: Repository<User>;
-  // let userService: UserService;
 
   beforeAll(async () => {
     const moduleFixture = await Test.createTestingModule({
@@ -21,20 +17,20 @@ describe('UserService (e2e)', () => {
           port: 5432,
           username: 'postgres',
           password: 'postgres',
-          database: 'users_test',
+          database: 'users',
           entities: ['./**/*.entity.ts'],
           synchronize: false,
+          dropSchema: false,
+          autoLoadEntities: true
         }),
       ],
     }).compile();
     app = moduleFixture.createNestApplication();
-    repository = moduleFixture.get('UserRepository');
     // userService = moduleFixture.get('UserService');
     await app.init();
   });
 
   afterAll(async () => {
-    await repository.query(`DELETE FROM users_test;`);
     await app.close();
   });
 
@@ -54,10 +50,6 @@ describe('UserService (e2e)', () => {
         lastChangedTime: expect.any(String),
       });
     });
-
-    // it('should return a user by name', async() =>{
-    //     await expect(userService.findOneByName('test-name')).resolves.toEqual({id: expect.any(Number),  name: 'test-name', email: 'test@test.com', lastChangedTime: expect.any(Date)});
-    // })
   });
 
   describe('GET /user/byname', () => {

@@ -1,3 +1,4 @@
+import { env } from 'process';
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export class CreateUserTable1632165139281 implements MigrationInterface {
@@ -34,6 +35,7 @@ export class CreateUserTable1632165139281 implements MigrationInterface {
             default: 'now()',
           },
         ],
+        schema: env.NODE_ENV === 'test' ? 'test' : 'public',
       }),
       true,
     );

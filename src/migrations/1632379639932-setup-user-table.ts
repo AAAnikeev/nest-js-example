@@ -1,7 +1,8 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
+import { env } from 'process';
 
 export class setupUserTable1632379639932 implements MigrationInterface {
-  public schemaName = 'public';
+  public schemaName = env.NODE_ENV === 'test' ? 'test' : 'public';
   public tableName = 'user';
   public fullPath = this.schemaName + '.' + this.tableName;
   public async up(queryRunner: QueryRunner): Promise<void> {
