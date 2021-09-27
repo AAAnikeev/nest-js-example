@@ -21,7 +21,7 @@ describe('UserService (e2e)', () => {
           entities: ['./**/*.entity.ts'],
           synchronize: false,
           dropSchema: false,
-          autoLoadEntities: true
+          autoLoadEntities: true,
         }),
       ],
     }).compile();
@@ -47,7 +47,7 @@ describe('UserService (e2e)', () => {
         id: expect.any(Number),
         name: 'test-name',
         email: 'test@test.com',
-        lastChangedTime: expect.any(String),
+        updatedAt: expect.any(String),
       });
     });
   });
@@ -63,7 +63,7 @@ describe('UserService (e2e)', () => {
         id: expect.any(Number),
         name: 'test-name',
         email: 'test@test.com',
-        lastChangedTime: expect.any(String),
+        updatedAt: expect.any(String),
       });
     });
   });

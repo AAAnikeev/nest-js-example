@@ -22,5 +22,5 @@ module.exports = {
         entitiesDir: "src",
         migrationsDir: "src/migrations",
       },
-      schema: process.env.NODE_ENV === 'test'? 'test': 'public'
+      schema: 'public'
     }

@@ -5,11 +5,9 @@ export class CreateUserTable1632165139281 implements MigrationInterface {
   name = 'CreateUserTable1632165139281';
   public tableName = 'user';
 
-  public async up(queryRunner: QueryRunner): Promise<void> {
-    // await queryRunner.query(
-    //   `CREATE TABLE "user" ("id" SERIAL NOT NULL, "name" character varying NOT NULL, "email" character varying NOT NULL, "lastChangedTme" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(), CONSTRAINT "PK_cace4a159ff9f2512dd42373760" PRIMARY KEY ("id"))`,
-    // );
+  public schemaName = env.NODE_ENV === 'test' ? 'test' : 'public';
 
+  public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
         name: this.tableName,
@@ -30,12 +28,12 @@ export class CreateUserTable1632165139281 implements MigrationInterface {
             isNullable: false,
           },
           {
-            name: 'lastChangedTime',
+            name: 'updatedAt',
             type: 'timestamptz',
             default: 'now()',
           },
         ],
-        schema: env.NODE_ENV === 'test' ? 'test' : 'public',
+        schema: this.schemaName,
       }),
       true,
     );

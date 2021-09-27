@@ -19,5 +19,5 @@ export class User {
   email: string;
 
   @UpdateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
-  lastChangedTime: Date;
+  updatedAt: Date;
 }
