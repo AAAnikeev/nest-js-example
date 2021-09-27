@@ -7,7 +7,7 @@ export class setupUserTable1632379639932 implements MigrationInterface {
   public fullPath = this.schemaName + '.' + this.tableName;
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(
-      `TRUNCATE TABLE ${this.fullPath} RESTART IDENTITY CASCADE;`,
+      `TABLE ${this.fullPath}`,
     );
 
     await queryRunner.query(
