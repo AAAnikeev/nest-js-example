@@ -7,6 +7,7 @@ import {
 } from 'typeorm';
 
 const schemaName = env.NODE_ENV === 'test' ? 'test' : 'public';
+// const schemaName = 'public';
 @Entity({ schema: schemaName })
 export class User {
   @PrimaryGeneratedColumn()

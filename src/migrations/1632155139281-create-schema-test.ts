@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner} from 'typeorm';
+import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class createSchemaTest1632155139281 implements MigrationInterface {
   public schemaName = 'test';
