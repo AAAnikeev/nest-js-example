@@ -2,10 +2,11 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserService } from './user.service';
 import { User } from './user.entity';
+import { env } from "process";
 
 describe('UserService', () => {
   let service: UserService;
-  // let dbName = env.NODE_ENV === 'test'? 'users-test': 'users'
+  let dbName = env.NODE_ENV === 'test'? 'users-test': 'users'
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [
@@ -15,7 +16,7 @@ describe('UserService', () => {
           port: 5432,
           username: 'postgres',
           password: 'postgres',
-          database: 'users',
+          database: dbName,
           entities: [User],
           synchronize: false,
           dropSchema: false,

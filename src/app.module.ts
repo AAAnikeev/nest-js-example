@@ -22,7 +22,8 @@ import { UserService } from './user/user.service';
       port: Number(env.POSTGRES_PORT),
       username: env.POSTGRES_USER,
       password: env.POSTGRES_PASSWORD,
-      database: env.POSTGRES_DB,
+      database:
+        env.NODE_ENV === 'test' ? env.POSTGRES_DB_TEST : env.POSTGRES_DB,
       entities: [User],
       synchronize: false,
       dropSchema: false,

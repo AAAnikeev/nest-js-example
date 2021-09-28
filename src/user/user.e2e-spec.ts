@@ -17,7 +17,7 @@ describe('UserService (e2e)', () => {
           port: 5432,
           username: 'postgres',
           password: 'postgres',
-          database: 'users',
+          database: 'users-test',
           entities: ['./**/*.entity.ts'],
           synchronize: false,
           dropSchema: false,
