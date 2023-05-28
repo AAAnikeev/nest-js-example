@@ -42,7 +42,7 @@
     "pg": "8.7.1",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
-    "rxjs": "7.3.0",
+    "rxjs": "7.8.1",
     "ts-watch": "1.0.8",
     "tsc": "2.0.3",
     "tsc-watch": "4.5.0",
