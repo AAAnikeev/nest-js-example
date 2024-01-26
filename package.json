@@ -46,7 +46,7 @@
     "ts-watch": "1.0.8",
     "tsc": "2.0.3",
     "tsc-watch": "4.5.0",
-    "typeorm": "0.2.37"
+    "typeorm": "0.3.20"
   },
   "devDependencies": {
     "@nestjs/schematics": "8.0.3",
